@@ -61,12 +61,7 @@ def get_hostname():
 
 # get permalink to the line of the finding in the specific commit
 def get_permalink(url, finding):
-	path = finding['path'].split("/")
-	if len(path) > 1:
-		path.pop(0)
-	path = "/".join(path)
-	path = path.split(":")
-	path = path[0]
+	path = finding['path']
 	return path, f"{url}/blob/{finding['location']['commitHash']}/{path}#L{finding['location']['lineRange']['start']}"
 
 # get details of the commit from git service
